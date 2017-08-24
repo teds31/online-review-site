@@ -1,7 +1,9 @@
 require 'rails_helper'
 
 feature 'sign up' do
-
+  # As a prospective user
+  # I want to create an account
+  # So that I can post items and review them
   scenario 'specifying valid and required information' do
     visit root_path
     click_link 'Sign Up'
@@ -16,7 +18,7 @@ feature 'sign up' do
     # expect(page).to have_content("Welcome! You have signed up successfully.")
     expect(page). to have_content("Sign Out")
   end
-
+  
   # scenario 'does not fill out all information' do
   #   visit root_path
   #   click_link 'Sign Up'
