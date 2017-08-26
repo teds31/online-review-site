@@ -1,9 +1,17 @@
 require 'rails_helper'
 
 feature 'sign up' do
+  
+  # User Story
   # As a prospective user
   # I want to create an account
   # So that I can post items and review them
+
+  # Acceptance Criteria
+  # if in put all the information correctly -> i can sign up
+  # if I don't fill out all the information or correctly -> i can't sign up
+  # if passwords don'tn match -> i can't sign up
+
   scenario 'specifying valid and required information' do
     visit root_path
     click_link 'Sign Up'
