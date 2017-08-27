@@ -30,7 +30,21 @@ feature 'authenticated user updates account info' do
     expect(page).to have_content("Your account has been updated successfully.")
   end
 
-  scenario 'form fields cannot be invalid or empty' do
+  scenario 'receives and error when inputting an invalid email adress' do
+    user = FactoryGirl.create(:user)
+    login_as(user, :scope => :user)
+    visit root_path
 
+    click_link 'My Account'
+    fill_in 'First name', with: user.first_name
+    fill_in 'Last name', with: user.last_name
+    fill_in 'Email', with: 'teddy.com '
+    fill_in 'Username', with: 'rocksteadyteddy'
+    fill_in 'Password', with: user.password
+    fill_in 'Password confirmation', with: user.password
+    fill_in 'Current password', with: user.password
+    click_button 'Update'
+
+    expect(page).to have_content("Email is invalid")
   end
 end

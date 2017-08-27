@@ -60,3 +60,5 @@ gem 'devise'
 gem 'shoulda'
 
 gem 'factory_girl_rails'
+
+gem 'bootstrap', '~> 4.0.0.alpha6'
