@@ -33,7 +33,7 @@ feature 'sign in' do
     fill_in 'Password', with: 'somepassword1'
     click_button 'Log in'
 
-    # expect(page).to have_content("Invalid email or password.")
+  # expect(page).to have_content("Invalid %{authentication_keys} or password.")
     expect(page).to_not have_content("Sign Out")
   end
 
@@ -45,8 +45,9 @@ feature 'sign in' do
     fill_in 'Email', with: user.email
     fill_in 'Password', with: 'whatever'
     click_button 'Log in'
+    save_and_open_page
 
-    # expect(page).to have_content("Invalid %{authentication_keys} or password.")
+    expect(page).to have_content("Invalid email or password.")
     expect(page).to_not have_content('Sign Out')
 
   end
