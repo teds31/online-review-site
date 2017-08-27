@@ -7,7 +7,7 @@ feature 'sign in' do
   # I want to sign in
   # So that I can post items and review them
   #
-  # Acceptance Critera
+  # Acceptance Criteria
   # if i input a registered email and password -> I sign in
   # if i input an unregistered email and password or
   # wrong email and password -> I can't sign in
