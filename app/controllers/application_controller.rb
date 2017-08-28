@@ -7,7 +7,6 @@ class ApplicationController < ActionController::Base
    root_path
  end
 
-
  before_action :configure_permitted_parameters, if: :devise_controller?
 
  def after_sign_out_path_for(users)
