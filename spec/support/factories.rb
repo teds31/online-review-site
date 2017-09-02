@@ -7,4 +7,18 @@ FactoryGirl.define do
     password 'password1'
     password_confirmation 'password1'
   end
+
+  # factory :product do
+  #   sequence(:name) {|n| "Wine#{n}"}
+  #   maker 'Montauk Vineyards'
+  #   location 'Montauk, Long Island'
+  #   year '2012'
+  #   association :user, factory: :user
+  # end
+  
+  # factory :attachment do
+  #    after :create do |b|
+  #      b.update_column(:wine_photo, "foo/bar/baz.png")
+  #    end
+  #  end
 end
