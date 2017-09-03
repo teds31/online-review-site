@@ -24,6 +24,17 @@ class ProductsController < ApplicationController
     end
   end
 
+  def edit
+    @wine = Product.find(params[:id])
+  end
+
+  def update
+    @wine = Product.find(params[:id])
+    @wine.update(wine_params)
+    flash[:success] = "Wine saved!"
+    redirect_to @wine
+  end
+
   private
 
     def authenticate_user!

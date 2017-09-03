@@ -1,3 +1,13 @@
+<nav>
+  <% if current_user = Product.find(params[:id]).user %>
+    <%= link_to 'Edit Wine', edit_product_path %>
+  <% else %>
+    <%= link_to 'Add A Wine', new_product_path %>
+    <%= link_to 'My Account', edit_user_registration_path %>
+    <%= link_to 'Sign Out', destroy_user_session_path, method: :delete %>
+  <% end %>
+</nav>
+
 <h1><%= @wine.name %></h1>
 <ul>
   <li> <%= @wine.maker %> </li>
