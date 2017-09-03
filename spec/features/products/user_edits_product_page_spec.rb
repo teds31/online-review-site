@@ -14,17 +14,16 @@ feature 'authenticated user edits the wine page' do
   scenario 'product creator/owner views product page and has edit link available' do
     user = FactoryGirl.create(:user)
     login_as(user, :scope => :user)
-    wine = FactoryGirl.create(:product)
+    wine = FactoryGirl.create(:product, user_id: user.id)
     visit root_path
     click_link wine.name
-
     expect(page).to have_content("Edit Wine")
   end
 
   scenario 'authenticated user edits form of product info and successfully saves' do
     user = FactoryGirl.create(:user)
     login_as(user, :scope => :user)
-    wine = FactoryGirl.create(:product)
+    wine = FactoryGirl.create(:product, user_id: user.id)
     visit root_path
     click_link wine.name
     click_link 'Edit Wine'

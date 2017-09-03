@@ -17,6 +17,7 @@ FactoryGirl.define do
     association :user, factory: :user
   end
 
+
   # factory :attachment do
   #    after :create do |b|
   #      b.update_column(:wine_photo, "foo/bar/baz.png")
