@@ -39,15 +39,13 @@ feature 'authenticated user edits the wine page' do
     expect(page).to have_content("La Reina del Sur")
   end
 
-  xscenario ' non product creator/owner does not have edit link available' do
+  scenario 'non product creator/owner does not have edit link available' do
     user = FactoryGirl.create(:user)
     wine = FactoryGirl.create(:product)
     visit root_path
     click_link wine.name
 
     expect(page).to_not have_content("Edit Wine")
-    expect(page).to have_content("My Account")
-    expect(page).to have_content("Sign Out")
   end
 
 end
