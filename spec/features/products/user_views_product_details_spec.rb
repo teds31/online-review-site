@@ -7,7 +7,7 @@ feature 'authenticated user views wine details when clicking on wine' do
   # So that I can pick items to review
   #
   # Acceptance Criteria
-  # views home page
+  # authenticated user views home page
   # clicks on wine name
   # gets taken to wine details to views
 
@@ -18,10 +18,11 @@ feature 'authenticated user views wine details when clicking on wine' do
     expect(page).to have_content(wine.name)
   end
 
-  scenario 'viws wine details page when clicked on name link' do
+  scenario 'authenticated user views wine details page when clicked on name link' do
+    user = FactoryGirl.create(:user)
+    login_as(user, :scope => :user)
     wine = FactoryGirl.create(:product)
     visit root_path
-    save_and_open_page
     click_link wine.name
 
     expect(page).to have_content(wine.name)
@@ -30,5 +31,12 @@ feature 'authenticated user views wine details when clicking on wine' do
     expect(page).to have_content(wine.year)
   end
 
+  scenario 'un-authenticated user gets error when trying to view a product' do
+    wine = FactoryGirl.create(:product)
+    visit root_path
+    click_link wine.name
+
+    expect(page).to have_content("Please Login to view that page!")
+  end
 
 end
