@@ -35,6 +35,13 @@ class ProductsController < ApplicationController
     redirect_to @wine
   end
 
+  def destroy
+    @wine = Product.find(params[:id])
+    @wine.destroy
+    flash[:success] = "Wine has been removed."
+    redirect_to products_path
+  end
+
   private
 
     def authenticate_user!

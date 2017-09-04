@@ -1,6 +1,7 @@
 <nav>
   <% if current_user.id == Product.find(params[:id]).user_id %>
     <%= link_to 'Edit Wine', edit_product_path %>
+    <%= link_to 'Delete Wine',  @wine, method: :delete %>
   <% else %>
     <%= link_to 'Add A Wine', new_product_path %>
     <%= link_to 'My Account', edit_user_registration_path %>
