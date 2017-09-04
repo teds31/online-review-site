@@ -11,8 +11,14 @@ feature 'authenticted user adds a review to a product page' do
   # Click link and see a form to fill out and submit button to submit review
   # Review is posted under the product for everyone to see
 
-  xscenario 'authenticated user sees add a review link on product page' do
-    
+  scenario 'authenticated user sees add a review link on product page' do
+    user = FactoryGirl.create(:user)
+    login_as(user, :scope => :user)
+    wine = FactoryGirl.create(:product)
+    visit root_path
+    click_link wine.name
+
+    expect(page).to have_content("Add Review")
   end
 
   xscenario 'authenticated user fills out form and submits review to product page' do

@@ -1,0 +1,24 @@
+<h2> Write Your Review Below For <%= @product.name %> </h2>
+<%= form_for [@product, @review] do |f| %>
+  <div class="field">
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </div>
+
+  <div class="field">
+    <%= f.label :body %>
+    <%= f.text_area :body %>
+  </div>
+
+  <div class="field">
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit 'Add Review' %>
+  </div>
+
+<% end %>
+<br>
+<hr>

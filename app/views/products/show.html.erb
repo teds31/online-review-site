@@ -2,6 +2,9 @@
   <% if current_user.id == Product.find(params[:id]).user_id %>
     <%= link_to 'Edit Wine', edit_product_path %>
     <%= link_to 'Delete Wine',  @wine, method: :delete %>
+    <%= link_to 'Add A Wine', new_product_path %>
+    <%= link_to 'My Account', edit_user_registration_path %>
+    <%= link_to 'Sign Out', destroy_user_session_path, method: :delete %>
   <% else %>
     <%= link_to 'Add A Wine', new_product_path %>
     <%= link_to 'My Account', edit_user_registration_path %>
@@ -17,3 +20,7 @@
 </ul>
 <hr>
 <h2> Reviews </h2>
+<nav>
+  <%= link_to 'Add Review', new_product_review_path %>
+</nav>
+<br>
