@@ -12,7 +12,7 @@ feature 'authenticted user adds a review to a product page' do
   # Review is posted under the product for everyone to see
 
   xscenario 'authenticated user sees add a review link on product page' do
-
+    
   end
 
   xscenario 'authenticated user fills out form and submits review to product page' do
@@ -20,6 +20,6 @@ feature 'authenticted user adds a review to a product page' do
   end
 
   xscenario 'authenticated user does not fill out form properly and recieves and error' do
-    
+
   end
 end
