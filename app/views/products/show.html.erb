@@ -19,8 +19,9 @@
   <li> <%= @wine.year %> </li>
 </ul>
 <hr>
-<h2> Reviews </h2>
 <nav>
-  <%= link_to 'Add Review', new_product_review_path %>
+  <%= link_to 'Add Review', new_product_review_path(@wine) %>
 </nav>
+<br>
+<%= render partial: "reviews/index", collection: @reviews %>
 <br>

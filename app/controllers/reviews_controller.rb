@@ -1,8 +1,9 @@
-class ProductReviewsController < ApplicationController
+class ReviewsController < ApplicationController
   before_action :authenticate_user!
+
   def index
     @wine = Product.find(params[:product_id])
-    @reviews = @product.reviews
+    @reviews = @wine.reviews
   end
 
   def new
@@ -13,11 +14,11 @@ class ProductReviewsController < ApplicationController
   def create
     @wine = Product.find(params[:product_id])
     @review = Review.new(review_params)
-    @review.wine = @wine
+    @reviews = @wine.reviews
 
     if @review.save
       flash[:notice] = "Review saved successfully."
-      redirect_to product_path(@wine)
+      redirect_to product_reviews_path(@wine)
     else
       flash[:alert] = "Failed to save review."
       render :new
@@ -35,7 +36,7 @@ class ProductReviewsController < ApplicationController
     end
 
     def review_params
-      params.require(:review).permit(:body)
+      params.require(:review).permit(:title, :body).merge(user: current_user)
     end
 
 end

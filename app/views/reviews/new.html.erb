@@ -1,5 +1,5 @@
-<h2> Write Your Review Below For <%= @product.name %> </h2>
-<%= form_for [@product, @review] do |f| %>
+<h2> Write Your Review Below </h2>
+<%= form_for [@wine, @review] do |f| %>
   <div class="field">
     <%= f.label :title %>
     <%= f.text_field :title %>
@@ -8,11 +8,6 @@
   <div class="field">
     <%= f.label :body %>
     <%= f.text_area :body %>
-  </div>
-
-  <div class="field">
-    <%= f.label :title %>
-    <%= f.text_field :title %>
   </div>
 
   <div class="actions">
