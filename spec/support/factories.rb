@@ -25,7 +25,10 @@ FactoryGirl.define do
   #  end
 
   factory :review do
-    
+    sequence(:title) {|n| "For the #{n} time this is a good wine!"}
+    body 'I mean I have it with cheese, steak, shrimp, and of course pizza!'
+    association :user, factory: :user
+    association :product, factory: :product
   end
 
 end
