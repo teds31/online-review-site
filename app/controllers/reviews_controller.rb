@@ -3,7 +3,7 @@ class ReviewsController < ApplicationController
 
   def index
     @wine = Product.find(params[:product_id])
-    @reviews = @wine.reviews
+    @reviews = @wine.product
   end
 
   def new
@@ -14,11 +14,11 @@ class ReviewsController < ApplicationController
   def create
     @wine = Product.find(params[:product_id])
     @review = Review.new(review_params)
-    @reviews = @wine.reviews
+    @review.product = @wine
 
     if @review.save
       flash[:notice] = "Review saved successfully."
-      redirect_to product_reviews_path(@wine)
+      redirect_to product_path(@wine)
     else
       flash[:alert] = "Failed to save review."
       render :new
