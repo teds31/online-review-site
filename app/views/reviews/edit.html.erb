@@ -1,5 +1,6 @@
-<h2> Write Your Review Below </h2>
+<h2> Edit Your Review Below </h2>
 <%= form_for [@wine, @review] do |f| %>
+
   <div class="field">
     <%= f.label :title %>
     <%= f.text_field :title %>
@@ -11,7 +12,7 @@
   </div>
   <br>
   <div class="actions">
-    <%= f.submit 'Add Review' %>
+    <%= f.submit 'Save Review' %>
   </div>
 
 <% end %>

@@ -25,6 +25,24 @@ class ReviewsController < ApplicationController
     end
   end
 
+  def edit
+    @wine = Product.find(params[:product_id])
+    @review = @wine.reviews.find(params[:id])
+  end
+
+  def update
+    @wine = Product.find(params[:product_id])
+    @review = @wine.reviews.find(params[:id])
+    @review.update_attributes(review_params)
+    if @review.save
+      flash[:success] = "Review saved!"
+      redirect_to product_path(@wine)
+    else
+      flash[:alert] = "All forms must be valid."
+      render :edit
+    end
+  end
+
   private
 
     def authenticate_user!
