@@ -5,6 +5,15 @@
   <p><b>Review By: </b> <%= review.user.username %> </p>
   <% if current_user.id == review.user.id %>
     <%= link_to 'Edit Review', edit_product_review_path(@wine, review) %>
+  <% else %>
+    <div id="helpful">
+      <%= button_to "Helpful" %>
+    </div>
+    <script>
+      function upVote () {
+        $('#helpful').load('layouts/helpful.html.erb');
+      }
+    </script>
   <% end %>
   <hr>
 <% end %>

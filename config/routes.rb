@@ -5,4 +5,9 @@ Rails.application.routes.draw do
   resources :products do
     resources :reviews
   end
+  namespace :api do
+    namespace :v1 do
+      resources :votes
+    end
+  end
 end

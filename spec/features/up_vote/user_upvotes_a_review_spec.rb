@@ -11,8 +11,16 @@ feature 'authenticted user upvotes or downvotes a review of a product' do
   # User can click on upvote or downvote and it shows a counter next to the vote
   # User can either downvote or upvote once, all clicks are final
 
-  xscenario 'authenticated user sees upvote and downvote buttons' do
+  scenario 'authenticated user sees upvote and downvote buttons' do
+    user = FactoryGirl.create(:user)
+    login_as(user, :scope => :user)
+    wine = FactoryGirl.create(:product, user_id: user.id)
+    review = FactoryGirl.create(:review, product_id: wine.id)
 
+    visit root_path
+    click_link wine.name
+
+    find_button 'Helpful'
   end
 
   xscenario 'authenticated user upvotes on a review and sees that counter go up' do
