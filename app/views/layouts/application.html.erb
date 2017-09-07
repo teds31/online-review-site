@@ -21,9 +21,11 @@
         <%= link_to 'Sign In', new_user_session_path %>
       <% end %>
     </nav>
-
-    <% form_tag
-
+    <br>
+    <%= form_tag(products_path, :method => "get", id: "search-form") do %>
+        <%= text_field_tag :search, params[:search], placeholder: "Search Wines", required: true  %>
+        <%= submit_tag "Search", :name => nil %>
+    <% end %>
     <div class="container">
       <%= render 'layouts/messages' %>
       <%= yield %>

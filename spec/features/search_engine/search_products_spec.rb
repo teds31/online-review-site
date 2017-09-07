@@ -12,15 +12,19 @@ feature 'user is able to search for wines on site through search engine' do
   # If I want to run another search, I can use the search bar at the top again
   # I cannot search with a blank query
 
-  xscenario 'user is able to view the search engine bar' do
+  scenario 'user is able to view the search engine bar' do
+    visit root_path
 
+    find_button 'Search'
   end
 
-  xscenario 'user is able to type a search query, submit the search and view results' do
+  scenario 'user is able to type a search query, submit view results' do
+    wine = FactoryGirl.create(:product)
+    visit root_path
+    fill_in :search, with: 'Montauk Vineyards'
+    click_button "Search"
 
+    expect(page).to have_content('Montauk Vineyards')
   end
 
-  xscenario 'user cannot search a blank search query' do
-
-  end
 end

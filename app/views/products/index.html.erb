@@ -3,6 +3,7 @@
 <ul>
   <% @wines.each do |wine| %>
     <li> <%= link_to wine.name, product_path(wine) %> </li>
+    <p>By: <%= wine.maker %> </p>
     <h5>Click Name For More Info And Reviews</h5>
     <hr>
   <% end %>

@@ -59,7 +59,6 @@ feature 'authenticted user edits their own review' do
     visit root_path
     click_link wine.name
     click_link 'Edit Review'
-    save_and_open_page
 
     fill_in 'Title', with: "All talk and no bite"
     click_button 'Save Review'

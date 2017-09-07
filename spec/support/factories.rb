@@ -15,8 +15,8 @@ FactoryGirl.define do
     location 'Montauk, Long Island'
     year '2012'
     association :user, factory: :user
-  end
 
+  end
 
   # factory :attachment do
   #    after :create do |b|
