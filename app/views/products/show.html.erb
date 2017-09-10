@@ -1,10 +1,13 @@
 <nav>
-  <% if current_user.id == Product.find(params[:id]).user_id %>
+  <% if current_user.id == Product.find(params[:id]).user_id || current_user.admin? %>
     <%= link_to 'Edit Wine', edit_product_path %>
     <%= link_to 'Delete Wine',  @wine, method: :delete %>
     <%= link_to 'Add A Wine', new_product_path %>
     <%= link_to 'My Account', edit_user_registration_path %>
     <%= link_to 'Sign Out', destroy_user_session_path, method: :delete %>
+    <% if current_user.admin? %>
+      <li><%= link_to "Admin Section", admin_only_index_path %></li>
+    <% end %>
   <% else %>
     <%= link_to 'Add A Wine', new_product_path %>
     <%= link_to 'My Account', edit_user_registration_path %>

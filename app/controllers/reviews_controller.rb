@@ -53,10 +53,8 @@ class ReviewsController < ApplicationController
 
   private
 
-    def authenticate_user!
-      if user_signed_in?
-        super
-      else
+    def authorize_user!
+      if !user_signed_in? || !current_user.admin?
         redirect_to new_user_session_path, notice: "Please Login to view that page!"
       end
     end
